@@ -14,21 +14,34 @@ body{
 
 </style>
 <body>
-    <h1>olá, mundo!</h1>
+    <form method="get">
+        <input type="text" id="meu-input" />
+        <input type="submit" id="meu-submit" value="Enviar" />
+    </form>
 
 
 
 
     <script>
-        /*window.alert('Minha Primeira mensagem!')
-        window,confirm('Está gostando de JS')
-        var nome = (window.prompt('Qual é seu nome'))
-        window.alert('É um grande prazer te conhecer ' + nome)*/
+      // Função que mostra o valor do input num alert
+function mostrarValor() {
+    alert(document.getElementById("meu-input").value);
+}
 
-        var n1 = Number(window.prompt('Digite um numero?'))
-        var n2 = Number(window.prompt('Digite outro numero?'))
-        var soma = n1 + n2
-        window.alert('A soma dos numeros digitados são' + soma)
+// Evento que é executado toda vez que uma tecla for pressionada no input
+document.getElementById("meu-input").onkeypress = function(e) {
+    // 13 é a tecla <ENTER>. Se ela for pressionada, mostrar o valor
+    if (e.keyCode == 13) {
+        mostrarValor();
+        e.preventDefault();
+    }
+}
+
+// Evento que é executado ao clicar no botão de enviar
+document.getElementById("meu-submit").onclick = function(e) {
+    mostrarValor();
+    e.preventDefault();
+}
 
     </script>
 </body>
